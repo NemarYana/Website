@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>PlantMate - Информация о растении</title>
+        <link rel="stylesheet" href="./styles/style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;500;600;700;800&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <header class="header">
+            <div class="container">
+                <div class="logo">
+                    <div class="logo-icon"><img src="./images/logo.svg" alt="Логотип" width="40" height="40"></div>
+                    <span class="logo-text">PlantMate</span>
+                </div>
+                <button class="menu-toggle" id="menuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <nav class="nav" id="mainNav">
+                    <a href="./index.html">Главная</a>
+                    <a href="./quiz.html">Подобрать растение</a>
+                    <a href="./catalog.html">Каталог</a>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+            <div class="plant-detail" id="plantDetail">
+            </div>
+        </main>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="logo">
+                    <div class="logo-icon"><img src="./images/logo-white.svg" alt="Логотип" width="40" height="40"></div>
+                    <span class="logo-text">PlantMate</span>
+                </div>
+                <div class="contacts">
+                    <div class="contact-us">
+                        <h3>Контакты</h3>
+                        <div class="contacts-container">
+                            <p>Телефон: +7 (XXX) XXX-XX-XX</p>
+                            <p>Email: info@plantmate.ru</p>
+                        </div>
+                    </div>
+                    <div class="contact-us">
+                        <h3>Мы в соцсетях</h3>
+                        <div class="contacts-container">
+                            <p>ВКонтакте: <span class="link">vk.com/plantmate</span></p>
+                            <p>Telegram: <span class="link">t.me/plantmate</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <script src="./scripts/plants-data.js"></script>
+        <script src="./scripts/plant-detail.js"></script>
+        <script>
+            const menuToggle = document.getElementById('menuToggle');
+                const mainNav = document.getElementById('mainNav');
+                
+                if (menuToggle && mainNav) {
+                    menuToggle.addEventListener('click', function() {
+                        menuToggle.classList.toggle('active');
+                        mainNav.classList.toggle('active');
+                        document.body.classList.toggle('menu-open');
+                    });
+                    
+                    const navLinks = mainNav.querySelectorAll('a');
+                    
+                    navLinks.forEach(link => {
+                        link.addEventListener('click', function() {
+                            menuToggle.classList.remove('active');
+                            mainNav.classList.remove('active');
+                            document.body.classList.remove('menu-open');
+                        });
+                    });
+                }
+        </script>
+    
+    </body>
+</html>
